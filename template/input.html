@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    #inputdefault {
+       margin-bottom: 20px;
+                }
+
+
+                .comment {
+        resize: none;
+        height: 50px;
+        width: 150px;
+      }            
+    </style>
+
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   
+
+
+
+
+
+
+      
+    
+    
+
+
+
+
+
+
+
+</head>
+<body>
+
+        <div class="container">
+            <div class="col-md-12">
+                <h3><label> Name</label></h3>
+                <textarea class="col-xs-4" id="Name" type="text" placeholder="Name" name="Name" style="background-color:#DCDCDC; height:40px; width:500px"></textarea>
+            <br/>
+               <h3><label> Email_ID</label></h3>
+               <textarea class="col-xs-4" id="Email_ID" type="text" placeholder="Email_ID" name="Email_ID" style="background-color:#DCDCDC; height:40px; width:600px"></textarea>
+              <br/>
+
+              <div class="Education_add">
+               <h3><label> Education</label></h3>
+               <textarea class="col-xs-4" id="Education_add" type="text" placeholder="Education_add" name="Education_add" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea>
+              <br/>
+            </div>
+
+            
+              <h3><label> Project</label></h3>
+              <div class="Project_add"></div>
+              <textarea class="col-xs-4" id="Project" type="text" placeholder="Project" name="Project" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea>
+              <br/>
+              </div>
+
+              <h3><label> Carrier_Goal</label></h3>
+              <textarea class="col-xs-4" id="Carrier_Goal" type="text" placeholder="Carrier_Goal" name="Carrier_Goal" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea>
+              <br/>
+               <h3><label> Achievements</label></h3>
+               <textarea class="col-xs-4" id="Achievements" type="text" placeholder="Achievements" name="Achievements" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea>
+              <br/>
+
+
+              <h3><label> Work_Experience</label></h3>
+              <div class="add_input"></div>
+              <textarea class="col-xs-4" id="inputdefault" type="text" placeholder="Work_Experienc" name="Work_Experienc" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea>
+              <input type="submit"value="Add More" id="work" class="work"/>
+              <br/>
+            </div>
+
+
+
+
+              <h3><label> Skills</label></h3>
+              <div class="add_input_fields">
+                <textarea id="roll_no"  name="goods" style="background-color:#DCDCDC;"></textarea>
+              <input type="submit"value="Add More skills" id="add_input_fields_button" class="add_input_fields_button"/>
+              <br/>
+              </div>
+              <input type="submit" id="btnPrint" class="btnPrint" onclick="test()" />
+
+
+
+
+
+            </div>
+          </div>
+          <div class="done" id="done">
+          <p id="demo1"></p>
+          <p id="demo2"></p>
+          <p id="demo3"></p>
+          <p id="demo4"></p>
+          <p id="demo5"></p>
+          <p id="demo6"></p>
+          <p id="demo7"></p>
+          <div class="pdf"></div>
+           </div>
+
+
+          
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+let roll_no =[]
+  $(document).ready(function(){
+     var max_fields = 10;
+     var wrapper = $(".add_input_fields");
+     var add_button = $(".add_input_fields_button");
+     x = 1;
+     $(add_button).click(function(e)
+     {
+      e.preventDefault();
+       
+       if (x<max_fields)
+       {
+         roll_no=[]
+         x++;
+         $(wrapper).append('<div> <textarea name="goods" class="comment" style="background-color:#DCDCDC;"></textarea><a href="#" class="remove">Remove</a></div>')
+         document.getElementById("demo").innerHTML = roll_no;
+         }
+        }
+      
+     )
+
+
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+       
+       e.preventDefault(); 
+       $(this).parent('div').remove(); 
+       x--;
+       })
+
+
+        $(".btnPrint").click(function(e)
+        {
+          $(".pdf").append('<input type="submit" id="Print" class="Print" Download/>')
+        })
+      
+
+
+
+
+
+
+let no =[]
+     var max_fields = 10;
+     var wrappe = $(".add_input");
+     var add_butto = $(".work");
+     y = 1;
+     $(add_butto).click(function(e)
+     {
+      e.preventDefault();
+       
+       if (x<max_fields)
+       {
+         no=[]
+         y++;
+         $(wrappe).append('<div><textarea class="col-xs-4" id="inputdefault" type="text" placeholder="Work_Experienc" name="Work_Experienc" style="background-color:#DCDCDC; height:40px; width:1000px"></textarea><a href="#" class="remove">Remove</a></>')
+         $("textarea[name='Work_Experienc']").each(function(){
+          no.push($(this).val());
+         document.getElementById("demo2").innerHTML = no;
+         })
+        }
+      }
+     )
+     
+
+    $(wrappe).on("click",".remove", function(e){ //user click on remove text
+       
+       e.preventDefault(); 
+       $(this).parent('div').remove(); 
+       y--;
+       })
+    
+
+
+
+
+
+    
+     
+
+    $(wrapp).on("click",".remov", function(e){ //user click on remove text
+       
+       e.preventDefault(); 
+       $(this).parent('div').remove(); 
+       pro--;
+       })
+
+
+
+
+
+
+
+      
+   });
+   
+
+   function test()
+   {
+
+
+    var name = document.getElementById("Name").value;
+    document.getElementById("demo1").innerHTML = "Name: "+name;
+    var Email_ID = document.getElementById("Email_ID").value;
+    document.getElementById("demo2").innerHTML = "Email_ID: "+Email_ID;
+    var Education_add = document.getElementById("Education_add").value;
+    document.getElementById("demo3").innerHTML = "Education : "+Education_add;
+    var Carrier_Goal = document.getElementById("Carrier_Goal").value;
+    document.getElementById("demo4").innerHTML = "Carrier_Goal : "+Carrier_Goal;
+    var Achievements = document.getElementById("Achievements").value;
+    document.getElementById("demo5").innerHTML = "Achievementss: "+Achievements;
+    var Skills = document.getElementById("Achievements").value;
+    document.getElementById("demo6").innerHTML = "Skills: "+Skills;
+    var Work_Experienc = document.getElementById("Achievements").value;
+    document.getElementById("demo7").innerHTML = "Work_Experienc: "+Work_Experienc;
+
+
+  
+  }
+  $("#Print").live("click", function () {
+            var divContents = $("#done").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><body>');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+
+
+
+
+
+
+
+
+</script> 
+</html>
